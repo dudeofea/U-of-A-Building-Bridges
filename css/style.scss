@@ -25,20 +25,26 @@
   src: url('dearjoe6.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
 
+/* -- Colors --- */
+$main1: #3a7bd5;
+$main2: #00d2ff;
+$text-main: #FFFFFF;
+$text-sub: #DEF9FF;
+
 /* -- Use 100% of the page */
 html, body {
 	height: 100%;
 }
 
 .content {
-	@include vert-gradient(#3a7bd5, #00d2ff);
+	@include vert-gradient($main1, $main2);
 	height: 100%;
 	padding: 40px;
 }
 
 .main-title {
 	font-family: 'Dear Joe' Arial;
-	color: white;
+	color: $text-main;
 	position: relative;
 	margin: 30px 0 0 30px;
 	.sub {
@@ -55,4 +61,9 @@ html, body {
 		font-size: 40px;
 		top: -35px;
 	}
+}
+.main-sub-title {
+	font-family: 'Dear Joe' Arial;
+	color: $text-sub;
+	margin: 15px 0 0 15px;
 }
