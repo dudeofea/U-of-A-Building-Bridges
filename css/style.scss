@@ -1,0 +1,52 @@
+/*
+*	Global CSS File for website
+*
+*/
+
+/** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {	margin: 0;	padding: 0;	border: 0;	font-size: 100%;	font: inherit;	vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {	display: block;}body {	line-height: 1;}ol, ul {	list-style: none;}blockquote, q {	quotes: none;}blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}table {	border-collapse: collapse;	border-spacing: 0;}
+
+/* --- Mixins --- */
+@mixin vert-gradient($color1, $color2){
+	background: -webkit-linear-gradient($color1, $color2); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient($color1, $color2); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient($color1, $color2); /* For Firefox 3.6 to 15 */
+	background: linear-gradient($color1, $color2); /* Standard syntax */
+}
+
+/* --- Font Faces --- */
+@font-face {
+  font-family: 'Simplicity';
+  src: url('simplicity.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('simplicity.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+/* -- Use 100% of the page */
+html, body {
+	height: 100%;
+}
+
+.content {
+	@include vert-gradient(#DE6262, #FFB88C);
+	height: 100%;
+	padding: 40px;
+}
+
+.main-title {
+	font-family: Simplicity;
+	font-size: 40px;
+	color: white;
+	font-weight: bold;
+	position: relative;
+	.sub {
+		position: absolute;
+		top: 65px;
+	}
+	.big {
+		font-size: 200px;
+		margin-left: 115px;
+	}
+	.exp {
+		position: absolute;
+		top: 0;
+	}
+}
