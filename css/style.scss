@@ -20,33 +20,39 @@
        url('simplicity.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
 
+@font-face {
+  font-family: 'Dear Joe';
+  src: url('dearjoe6.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
 /* -- Use 100% of the page */
 html, body {
 	height: 100%;
 }
 
 .content {
-	@include vert-gradient(#DE6262, #FFB88C);
+	@include vert-gradient(#3a7bd5, #00d2ff);
 	height: 100%;
 	padding: 40px;
 }
 
 .main-title {
-	font-family: Simplicity;
-	font-size: 40px;
+	font-family: 'Dear Joe' Arial;
 	color: white;
-	font-weight: bold;
 	position: relative;
+	margin: 30px 0 0 30px;
 	.sub {
 		position: absolute;
-		top: 65px;
+		font-size: 40px;
+		top: 22px;
 	}
 	.big {
-		font-size: 200px;
-		margin-left: 115px;
+		font-size: 130px;
+		margin-left: 110px;
 	}
 	.exp {
 		position: absolute;
-		top: 0;
+		font-size: 40px;
+		top: -35px;
 	}
 }
