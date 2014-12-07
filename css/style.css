@@ -33,11 +33,15 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* No underlines on links */
+a {
+  text-decoration: none; }
+
 /* --- Mixins --- */
 /* --- Font Faces --- */
 @font-face {
-  font-family: 'Simplicity';
-  src: url("simplicity.woff") format("woff"), url("simplicity.ttf") format("truetype");
+  font-family: 'Sugarcubes';
+  src: url("sugarcubesbold.ttf") format("truetype");
   /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */ }
 @font-face {
   font-family: 'Dear Joe';
@@ -57,14 +61,19 @@ html, body {
   /* For Firefox 3.6 to 15 */
   background: linear-gradient(#3a7bd5, #00d2ff);
   /* Standard syntax */
-  height: 100%;
-  padding: 40px; }
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+div, p {
+  font-family: 'Dear Joe' Arial;
+  color: #FFFFFF; }
 
 .main-title {
-  font-family: 'Dear Joe' Arial;
-  color: #FFFFFF;
   position: relative;
-  margin: 30px 0 0 30px; }
+  margin: 70px 0 0 70px; }
   .main-title .sub {
     position: absolute;
     font-size: 40px;
@@ -78,8 +87,32 @@ html, body {
     top: -35px; }
 
 .main-sub-title {
-  font-family: 'Dear Joe' Arial;
   color: #DEF9FF;
-  margin: 15px 0 0 15px; }
+  margin: 15px 0 0 55px; }
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  right: 25px; }
+  .footer p {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 40px;
+    height: 40px;
+    margin-right: 10px; }
+
+.stories {
+  margin: 80px 0 0 30px; }
+  .stories li {
+    padding: 20px;
+    border-top: 1px solid #DEF9FF;
+    color: #DEF9FF;
+    opacity: 0.85; }
+    .stories li .title {
+      font-family: Sugarcubes;
+      display: inline-block;
+      line-height: 50px;
+      vertical-align: top;
+      margin-left: 20px; }
 
 /*# sourceMappingURL=style.css.map */
