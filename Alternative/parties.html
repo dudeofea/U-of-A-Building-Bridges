@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Building Bridges @ UofA - Home</title>
+<link rel="shortcut icon" href="Assets/favicon.ico" />
+<meta name="keywords" content="building bridges,b squared,b^2,uofa,u of a,university,of,alberta" />
+<meta name="description" content="B squared is a service provided by the University of Alberta Bridge Builder team to connect new/isolated students with each other." />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link href="css/metro-bootstrap.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+body {
+	background-color: #3CB6CE;
+    color: #FFFFFF;
+}
+</style>
+
+	<link href="css/metro-bootstrap.css" rel="stylesheet">
+    <link href="css/metro-bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/iconFont.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    <link href="js/prettify/prettify.css" rel="stylesheet">
+
+    <!-- Load JavaScript Libraries -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery/jquery.widget.min.js"></script>
+    <script src="js/jquery/jquery.mousewheel.js"></script>
+    <script src="js/prettify/prettify.js"></script>
+    <script src="js/holder/holder.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script>
+
+    <!-- Local JavaScript -->
+    <script src="js/docs.js"></script>
+    <script src="js/github.info.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+    <script type="text/javascript" charset="UTF-8"src="http://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+    <script type="text/javascript" charset="UTF-8"src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+    <script type="text/javascript"  charset="UTF-8"src="http://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+
+</head>
+	<body text="#FFFFFF" class="metro">
+
+        <div class="grid">
+            <div id="row1" class="row">
+                <div class="span3"><a href="/index.html"><img src="Assets/logo.png" alt="U of A B² - Connecting you with a _?"></a>
+                </div>
+                <div class="span1">
+                    	<div class="tile" data-click="transform">
+                    		<div id="accountimage" class="tile-content image">
+                        		<img src="Assets/default_user.png">
+                        	</div>
+                         	<div class="brand bg-black">
+                         		<span class="label fg-white">Sign in</span>
+                			</div>
+                    	</div>
+                </div>
+            </div>
+
+            <div id="row2" class="row">
+                <div class="span3">
+                    <nav class="vertical-menu white">
+                        <ul>
+                            <li class="title">Party</li>
+                            <li><a href="#">Study</a></li>
+                            <li><a href="#">Fun</a></li>
+                            <li><a href="#">Custom</a></li>
+                            <li><a href="#">+Your Own</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="span12" id="map" style="width: 100%; height: 400px; background: grey" />
+
+            </div>
+        </div>
+
+        
+        <script  type="text/javascript" charset="UTF-8" >
+            function addMarkerToGroup(group, coordinate, html) {
+                var marker = new H.map.Marker(coordinate);
+                // add custom data to the marker
+                marker.setData(html);
+                group.addObject(marker);
+            }
+            function moveMapToUofA(map)
+            {
+                map.setCenter({ lat: 53.5244, lng: -113.5244 });
+                map.setZoom(15);
+            }
+            /**
+ * Boilerplate map initialization code starts below:
+ */
+
+            //Step 1: initialize communication with the platform
+            var platform = new H.service.Platform({
+                app_id: 'DemoAppId01082013GAL',
+                app_code: 'AJKnXv84fjrb0KIHawS0Tg',
+                useCIT: true
+            });
+            var defaultLayers = platform.createDefaultLayers();
+
+            //Step 2: initialize a map  - not specificing a location will give a whole world view.
+            var map = new H.Map(document.getElementById('map'),
+              defaultLayers.normal.map);
+
+            //Step 3: make the map interactive
+            // MapEvents enables the event system
+            // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+            var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+            // Create the default UI components
+            var ui = H.ui.UI.createDefault(map, defaultLayers);
+            function addMarkerToGroup(group, coordinate, html) {
+                var marker = new H.map.Marker(coordinate);
+                // add custom data to the marker
+                marker.setData(html);
+                group.addObject(marker);
+            }
+
+            function addInfoBubble() {
+                var group = new H.map.Group();
+
+                map.addObject(group);
+
+                // add 'tap' event listener, that opens info bubble, to the group
+                group.addEventListener('tap', function (evt) {
+                    // event target is the marker itself, group is a parent event target
+                    // for all objects that it contains
+                    var bubble = new H.ui.InfoBubble(evt.target.getPosition(), {
+                        // read custom data
+                        content: evt.target.getData()
+                    });
+                    // show info bubble
+                    ui.addBubble(bubble);
+                }, false);
+
+                addMarkerToGroup(group, { lat: 53.526296, lng: -113.525600 },
+                  '<div><a>Ultimate Frisbee</a>' +
+                  '</div><div >@ Quad<br>Today @ 3:00 PM</div>');
+                
+                addMarkerToGroup(group, { lat: 53.528200, lng: -113.525439 },
+                  '<div ><a>Stats 151 Study Group</a>' +
+                  '</div><div >@ CCIS L2-220<br>Tommrow @ 12:00 AM</div>');
+
+            }
+
+            
+            // Now use the map as required...
+            moveMapToUofA(map);
+
+            addInfoBubble();
+            
+        </script>
+
+
+        
+    </body>
+</html>
+
+ 
