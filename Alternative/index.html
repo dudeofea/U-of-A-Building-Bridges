@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -27,6 +27,7 @@ body {
     <script src="js/jquery/jquery.mousewheel.js"></script>
     <script src="js/prettify/prettify.js"></script>
     <script src="js/holder/holder.js"></script>
+    <script src="js/HERE_utilities.js"></script>
 
     <!-- Metro UI CSS JavaScript plugins -->
     <script src="js/load-metro.js"></script>
@@ -34,12 +35,16 @@ body {
     <!-- Local JavaScript -->
     <script src="js/docs.js"></script>
     <script src="js/github.info.js"></script>
+    <script src="js/herescript.js"></script>
     <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
     <script type="text/javascript" charset="UTF-8"src="http://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
     <script type="text/javascript" charset="UTF-8" src="http://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
     <script type="text/javascript" charset="UTF-8"src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
     <script type="text/javascript"  charset="UTF-8"src="http://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
 
+    <!-- Load script specific for index page-->
+    <script src="js/index_script.js"></script>
+    
 </head>
 	<body text="#FFFFFF" class="metro">
         <div class="grid">
@@ -76,38 +81,7 @@ body {
 
         
         <script  type="text/javascript" charset="UTF-8" >
-
-            function moveMapToUofA(map)
-            {
-                map.setCenter({ lat: 53.5244, lng: -113.5244 });
-                map.setZoom(15);
-            }
-            /**
- * Boilerplate map initialization code starts below:
- */
-
-            //Step 1: initialize communication with the platform
-            var platform = new H.service.Platform({
-                app_id: 'DemoAppId01082013GAL',
-                app_code: 'AJKnXv84fjrb0KIHawS0Tg',
-                useCIT: true
-            });
-            var defaultLayers = platform.createDefaultLayers();
-
-            //Step 2: initialize a map  - not specificing a location will give a whole world view.
-            var map = new H.Map(document.getElementById('map'),
-              defaultLayers.normal.map);
-
-            //Step 3: make the map interactive
-            // MapEvents enables the event system
-            // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-            var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-
-            // Create the default UI components
-            var ui = H.ui.UI.createDefault(map, defaultLayers);
-
-            // Now use the map as required...
-            moveMapToUofA(map);
+            main();
         </script>
 
 
