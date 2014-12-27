@@ -27,7 +27,7 @@ body {
     <script src="js/jquery/jquery.mousewheel.js"></script>
     <script src="js/prettify/prettify.js"></script>
     <script src="js/holder/holder.js"></script>
-    <script src="js/HERE_utilities.js"></script>
+    <script src="js/page_scripts/HERE_utilities.js"></script>
 
     <!-- Metro UI CSS JavaScript plugins -->
     <script src="js/load-metro.js"></script>
@@ -43,8 +43,7 @@ body {
 
 
     <!-- Load script specific for party page-->
-    <script src="js/parties_script.js"></script>
-
+    <script src="js/page_scripts/party/parties_script.js"></script>
 </head>
 	<body text="#FFFFFF" class="metro">
 
@@ -66,13 +65,13 @@ body {
 
             <div id="row2" class="row">
                 <div class="span3">
-                    <nav class="vertical-menu white">
+                    <nav class="vertical-menu">
                         <ul>
-                            <li class="title">Party</li>
-                            <li><a href="#">Study</a></li>
-                            <li><a href="#">Fun</a></li>
-                            <li><a href="#">Custom</a></li>
-                            <li><a href="#">+Your Own</a></li>
+                            <li class="title" >Party</li>
+                            <li><a onclick="display_study()" id="study" href="#study">Study</a></li>
+                            <li><a onclick="display_fun()" id="fun" href="#fun">Fun</a></li>
+                            <li><a onclick="display_custom()" id="custom" href="#custom">Custom</a></li>
+                            <li><a onclick="display_own()" id="own" href="#add">+Your Own</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -90,14 +89,15 @@ body {
             var map = mappackage.map;
             var ui = mappackage.ui;
             
-            var group = groupfactory(ui);
+            var groupfun = groupfactory(ui);
+            var groupstudy = groupfactory(ui);
+            var groupcustom = groupfactory(ui);
+            var currentgroup = groupfun;
+            var edit = false;
             main();
            
        
         </script>
-
-
-        
     </body>
 </html>
 
