@@ -2,22 +2,10 @@ function moveMapToUofA(map) {
     map.setCenter({ lat: 53.5244, lng: -113.5244 });
     map.setZoom(15);
 }
-function addMarkerToGroup(group, coordinate, html, type) {
+function addMarkerToGroup(group, coordinate, html) {
     var marker = new H.map.Marker(coordinate);
-    if (type == "study") {
-        var icon = new H.map.Icon(studymark);
-        marker = new H.map.Marker(coordinate, { icon: icon });
-    }
-    if (type == "fun") {
-        var icon = new H.map.Icon(funmark);
-        marker = new H.map.Marker(coordinate, { icon: icon });
-    }
-    if (type == "custom") {
-        var icon = new H.map.Icon(custommark);
-        marker = new H.map.Marker(coordinate, { icon: icon });
-    }
-    
-
+    var icon = new H.map.Icon(currenticon);
+    marker = new H.map.Marker(coordinate, { icon: icon });
     // add custom data to the marker
     marker.setData(html);
     group.addObject(marker);
